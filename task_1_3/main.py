@@ -4,17 +4,6 @@ import pandas as pd
 import psycopg2
 
 
-dbname = 'DBBank'
-host = 'localhost'
-user = 'postgres'
-password = 'postgres'
-
-conn = psycopg2.connect(
-    host=host,
-    database=dbname,
-    user=user,
-    password=password,
-)
 
 def sql_query(query):
     cur = conn.cursor()
@@ -60,6 +49,18 @@ def data_handling():
 
 
 if __name__ == '__main__':
+    
+    dbname = 'DBBank'
+    host = 'localhost'
+    user = 'postgres'
+    password = 'postgres'
+    
+    conn = psycopg2.connect(
+        host=host,
+        database=dbname,
+        user=user,
+        password=password,
+    )
     data_handling()
     answer = "1"
     while answer == "1":
