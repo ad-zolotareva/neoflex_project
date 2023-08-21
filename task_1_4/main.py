@@ -3,17 +3,6 @@ import time
 import datetime
 from datetime import date
 
-dbname = 'DBBank'
-host = 'localhost'
-user = 'postgres'
-password = 'postgres'
-
-conn = psycopg2.connect(
-    host=host,
-    database=dbname,
-    user=user,
-    password=password,
-)
 
 
 def sql_query(query, parameters=''):
@@ -27,6 +16,18 @@ def sql_query(query, parameters=''):
 
 
 if __name__ == '__main__':
+    
+    dbname = 'DBBank'
+    host = 'localhost'
+    user = 'postgres'
+    password = 'postgres'
+    
+    conn = psycopg2.connect(
+        host=host,
+        database=dbname,
+        user=user,
+        password=password,
+    )
     print("Введите начальную дату")
     p_year = input("\nГод ")
     p_month = input("\nМесяц ")
