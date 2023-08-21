@@ -2,18 +2,6 @@ import psycopg2
 import time
 import rows_table
 
-dbname = 'DBBank'
-host = 'localhost'
-user = 'postgres'
-password = 'postgres'
-
-conn = psycopg2.connect(
-    host=host,
-    database=dbname,
-    user=user,
-    password=password,
-)
-
 
 def sql_query(query, parameters=''):
     cur = conn.cursor()
@@ -150,6 +138,18 @@ def data_loading():
 
 
 if __name__ == '__main__':
+    
+    dbname = 'DBBank'
+    host = 'localhost'
+    user = 'postgres'
+    password = 'postgres'
+    
+    conn = psycopg2.connect(
+        host=host,
+        database=dbname,
+        user=user,
+        password=password,
+    )
     sql_query("insert into LOGS.log_table (log_data, log_time) values ('Начало загрузки данных',  LOCALTIMESTAMP(0));")
     data_loading()
     sql_query("insert into LOGS.log_table (log_data, log_time) values ('Загрузка данных завершена',  LOCALTIMESTAMP(0));")
